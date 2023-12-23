@@ -68,6 +68,11 @@ fetch("https://jsonplaceholder.typicode.com/users")
     console.log(response);
     return response.json();
   })
-  .then((data) => {
+  /*.then((data) => {
     console.log(data);
+  })*/
+  .then((data) => {
+    data.forEach((user) => {
+      console.log(user);
+    });
   });
