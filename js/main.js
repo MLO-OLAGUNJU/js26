@@ -1,7 +1,7 @@
 //Fetch API requires a discussion of .........
 // Callbacks, Promises, Thenables, and Async/Await
 
-function firstFunction(parameters, callback) {
+/* function firstFunction(parameters, callback) {
   // do stuff
   callback();
 }
@@ -12,7 +12,7 @@ firstFunction(para, function () {
   secondFunction(para, function () {
     thirdFunction(para, function () {});
   });
-});
+}); */
 
 // Promises
 //3 states: Pending, Fulfilled, Rejected
@@ -25,3 +25,5 @@ const myPromise = new Promise((resolve, reject) => {
     reject("No! rejected the the promise.");
   }
 });
+
+console.log(myPromise);
