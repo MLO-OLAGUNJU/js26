@@ -143,7 +143,7 @@ getAllUserEmails();
 
 getDadJoke(); */
 
-const getDadJoke = async () => {
+/* const getDadJoke = async () => {
   const response = await fetch("https://icanhazdadjoke.com/", {
     method: "GET",
     headers: {
@@ -156,3 +156,38 @@ const getDadJoke = async () => {
 };
 
 getDadJoke();
+ */
+
+//another example
+/* const jokeObject = {
+  id: "pzXvHl3EYg",
+  joke: "Why don’t seagulls fly over the bay? Because then they’d be bay-gulls!",
+  status: 200,
+};
+
+const postData = async (jokeObj) => {
+  const response = await fetch("https://httpbin.org/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(jokeObj),
+  });
+  const jsonResponse = await response.json();
+
+  console.log(jsonResponse.headers);
+};
+
+postData(jokeObject); */
+
+const requestJoke = async (firstName, lastName) => {
+  const response = await fetch(
+    `https://api.icndb.com/jokes/random?firstName=${firstName} &
+    lastName=${lastName}`
+  );
+  const jsonResponse = await response.json();
+
+  console.log(jsonResponse.value.joke);
+};
+
+requestJoke("clint", "Eastwood");
