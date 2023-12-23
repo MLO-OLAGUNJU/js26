@@ -109,14 +109,50 @@ console.log(myUsers.userList); */
 
 //examples on async await
 
-const getAllUserEmails = async () => {
+/* const getAllUserEmails = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   const jsonUserData = await response.json();
 
   const userEmailArray = jsonUserData.map((User) => {
     return User.email;
   });
-  console.log(userEmailArray);
+  // console.log(userEmailArray);
+  postToWebPage(userEmailArray);
+};
+
+const postToWebPage = (data) => {
+  console.log(data);
 };
 
 getAllUserEmails();
+ */
+
+//2nd parameter of fectch(); usually an object
+
+/* const getDadJoke = async () => {
+  const response = await fetch("https://icanhazdadjoke.com/", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  const jsonJokeData = await response.json();
+
+  console.log(jsonJokeData);
+};
+
+getDadJoke(); */
+
+const getDadJoke = async () => {
+  const response = await fetch("https://icanhazdadjoke.com/", {
+    method: "GET",
+    headers: {
+      Accept: "text/plain",
+    },
+  });
+  const textJokeData = await response.text();
+
+  console.log(textJokeData);
+};
+
+getDadJoke();
