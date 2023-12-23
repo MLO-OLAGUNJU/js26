@@ -212,8 +212,22 @@ const buildRequestUrl = (requestData) => {
 const requestJoke = async (url) => {
   const response = await fetch(url);
   const jsonResponse = await response.json();
+  const jokeObj = jsonResponse.value.joke;
+  postJokeToPage(joke);
+};
 
-  console.log(jsonResponse.value.joke);
+const postJokeToPage = (joke) => {
+  console.log(joke);
 };
 
 requestJoke("Bruce", "Lee");
+
+//Procdure "workflow" function
+const processJokeRequest = async () => {
+  const requestData = getDataFromForm();
+  const requestUrl = buildRequestUrl(requestData);
+  await requestJoke(requestUrl);
+  console.log("Finished!");
+};
+
+processJokeRequest();
