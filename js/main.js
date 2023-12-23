@@ -180,14 +180,40 @@ const postData = async (jokeObj) => {
 
 postData(jokeObject); */
 
-const requestJoke = async (firstName, lastName) => {
+/* const requestJoke = async (firstName, lastName) => {
   const response = await fetch(
     `https://api.icndb.com/jokes/random?firstName=${firstName} &
-    lastName=${lastName}`
+    lastName=${lastName}&limitTo=[nerdy]`
   );
+  const jsonResponse = await response.json();
+
+  console.log(jsonResponse.value.joke);
+}; */
+
+// requestJoke("clint", "Eastwood");
+requestJoke("Bruce", "Lee");
+
+// abstract into functions
+
+// maybe from a form
+const getDataFromForm = () => {
+  const requestObj = {
+    firstName: "BRUCE",
+    lastName: "lee",
+    categories: ["nerdy"],
+  };
+  return requestObj;
+};
+
+const buildRequestUrl = (requestData) => {
+  return `http://api.icndb.com/jokes/random?firstName=${requestData.firstName}&lastName=${requestData.lastName}&limitTo=${requestData.categories}`;
+};
+
+const requestJoke = async (url) => {
+  const response = await fetch(url);
   const jsonResponse = await response.json();
 
   console.log(jsonResponse.value.joke);
 };
 
-requestJoke("clint", "Eastwood");
+requestJoke("Bruce", "Lee");
