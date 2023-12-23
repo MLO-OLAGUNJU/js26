@@ -80,7 +80,7 @@ const users = fetch("https://jsonplaceholder.typicode.com/users")
   });
 console.log(users); */
 
-//Async /Await
+/* //Async /Await
 
 const myUsers = {
   userList: [],
@@ -101,6 +101,22 @@ const anotherFunc = async () => {
   const data = await myCoolFunction();
   // console.log(data);
   myUsers.userList = data;
+  console.log(myUsers.userList);
 };
 
 anotherFunc();
+console.log(myUsers.userList); */
+
+//examples on async await
+
+const getAllUserEmails = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const jsonUserData = await response.json();
+
+  const userEmailArray = jsonUserData.map((User) => {
+    return User.email;
+  });
+  console.log(userEmailArray);
+};
+
+getAllUserEmails();
