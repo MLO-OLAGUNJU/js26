@@ -58,12 +58,14 @@ myPromise.then((value) => {
   console.log(value);
 });*/
 
-const users = fetch("https://jsonplaceholder.typicode.com/users");
+/*
+//FETCH API 
+// const users = fetch("https://jsonplaceholder.typicode.com/users");
 
 //pending
-console.log(users);
+// console.log(users);
 
-fetch("https://jsonplaceholder.typicode.com/users")
+const users = fetch("https://jsonplaceholder.typicode.com/users")
   .then((response) => {
     console.log(response);
     return response.json();
@@ -71,8 +73,34 @@ fetch("https://jsonplaceholder.typicode.com/users")
   /*.then((data) => {
     console.log(data);
   })*/
-  .then((data) => {
+/*  .then((data) => {
     data.forEach((user) => {
       console.log(user);
     });
   });
+console.log(users); */
+
+//Async /Await
+
+const myUsers = {
+  userList: [],
+};
+
+//async function myCoolFunction() {
+// or
+const myCoolFunction = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const jsonUserData = await response.json();
+  console.log(jsonUserData);
+  return jsonUserData;
+};
+
+// myCoolFunction();
+
+const anotherFunc = async () => {
+  const data = await myCoolFunction();
+  // console.log(data);
+  myUsers.userList = data;
+};
+
+anotherFunc();
