@@ -18,7 +18,7 @@ firstFunction(para, function () {
 //3 states: Pending, Fulfilled, Rejected
 
 const myPromise = new Promise((resolve, reject) => {
-  const error = true; //false
+  const error = false; //true;
   if (!error) {
     resolve("Yes! resolved the promise!");
   } else {
@@ -34,7 +34,7 @@ myPromise.then((value) => {
 });
 */
 
-myPromise
+/* myPromise
   .then((value) => {
     return value + 1;
   })
@@ -43,4 +43,17 @@ myPromise
   })
   .catch((err) => {
     console.error(err);
-  });
+  }); */
+const myNextPromise = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    resolve("My Next promise is RESOLVED !");
+  }, 3000);
+});
+
+myNextPromise.then((value) => {
+  console.log(value);
+});
+
+myPromise.then((value) => {
+  console.log(value);
+});
